@@ -1,0 +1,9 @@
+SELECT p.sku          as SKU,
+       p.product_name as ProductName
+
+FROM PRODUCT as p
+WHERE 1 = 1
+  AND p.id NOT IN
+      (SELECT i.product_id
+       FROM INVOICE_ITEM i)
+ORDER BY p.sku ASC
